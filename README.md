@@ -3,7 +3,7 @@ Convert POSTed JSON to PromQL Prometheus metrics to scrape.
 
 This is useful in situations where your monitoring environment uses Prometheus to scrape data from components in the system where some components may not expose Prometheus metrics. Instead of building a custom Prometheus exporter for each different component, you can just post ANY JSON data you want to this and set this API as a Prometheus scrape target.
 
-The logistics of setting this API up in a resilient way to ensure scrape target availability is an exercise left to the reader. It can run on Kubernetes, VMs, AWS ECS, CloudFoundry, laptop, whatever.
+NOTE: This API hold all its information in-memory (NO persistent data storage). The design of this API assumes you have a Prometheus instance to scrape its metrics, therefore acting as the persistent datastore. So if this application restarts or dies (such as in a container or Pod), all of its knowledge of metrics is gone. You can simply post back to this API with more (or the same) data and it will keep it ready to serve again. Just keep in mind this design and use Prometheus to scrape and store the metrics, not `json2prom` itself.
 
 
 All API endpoints can be found at `<route>:41024/apidocs`
