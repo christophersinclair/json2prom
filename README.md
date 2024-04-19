@@ -1,6 +1,11 @@
 # json2prom
 Convert POSTed JSON to PromQL Prometheus metrics to scrape.
 
+This is useful in situations where your monitoring environment uses Prometheus to scrape data from components in the system where some components may not expose Prometheus metrics. Instead of building a custom Prometheus exporter for each different component, you can just post ANY JSON data you want to this and set this API as a Prometheus scrape target.
+
+The logistics of setting this API up in a resilient way to ensure scrape target availability is an exercise left to the reader. It can run on Kubernetes, VMs, AWS ECS, CloudFoundry, laptop, whatever.
+
+
 All API endpoints can be found at `localhost:41024/apidocs`
 
 ### Publishing Data to Convert (JSON POST)
