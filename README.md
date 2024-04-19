@@ -26,4 +26,5 @@ curl -s -k -H "Accept: text/plain" http://<route>:41024/metrics
 [{"labels":[{"env":"prod"}],"name":"http_200_response_count","value":"25"},{"labels":[{"env":"dev"}],"name":"http_500_response_count","value":"2"}]
 
 `http://<route>:41024/metrics` shows metrics in Prom format
+
 ![image](https://github.com/christophersinclair/json2prom/assets/29457515/e6b2ce79-a11f-4bd8-926a-294d9fbd01e9)
