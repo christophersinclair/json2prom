@@ -1,5 +1,3 @@
-import logging
-
 from flask import jsonify, make_response
 
 from metric import Metric
@@ -11,15 +9,16 @@ def get_metrics():
     m = Metric.getInstance()
     prom = ""
 
+    # Create and append to a simple string in Prometheus format for each metric
     for metric in m.metrics:
-        prom += f"{metric['name']}"
+        prom += f"{metric['name']}"  # metric name placement
         prom += "{"
         for label in metric["labels"]:
             for key, value in label.items():
                 prom += f'{key}="{value}"'
-        prom = prom[:-1]
+        prom = prom[:-1]  # lob off final comma in labels
         prom += "}"
-        prom += f"{metric['value']}"
+        prom += f"{metric['value']}"  # metric value placement
         prom += "\n"
 
     return prom

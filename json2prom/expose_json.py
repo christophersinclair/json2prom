@@ -1,5 +1,3 @@
-import logging
-
 from flask import jsonify, make_response
 
 from metric import Metric

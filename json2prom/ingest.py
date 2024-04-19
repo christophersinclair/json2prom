@@ -1,5 +1,3 @@
-import logging
-
 from flask import request, jsonify, abort
 from flasgger import swag_from
 
@@ -8,6 +6,7 @@ from metric import Metric
 from json2prom import app
 
 
+# Complex Swagger documentation
 @app.route("/ingest", methods=["POST"])
 @swag_from(
     {
@@ -82,6 +81,7 @@ def ingest():
                 break
 
         if not replacement:
+            # Otherwise, just append to list of metrics
             m.metrics.append(
                 {"name": ingest_name, "value": ingest_value, "labels": ingest_labels}
             )
