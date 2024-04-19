@@ -14,7 +14,7 @@ def get_metrics():
     for metric in m.metrics:
         prom += f"{metric['name']}"
         prom += "{"
-        for label in metric['labels']:
+        for label in metric["labels"]:
             for key, value in label.items():
                 prom += f'{key}="{value}"'
         prom = prom[:-1]

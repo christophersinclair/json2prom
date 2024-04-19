@@ -34,15 +34,15 @@ from json2prom import app
                                                 "type": "object",
                                                 "properties": {
                                                     "foo": {"type": "string"}
-                                                }
-                                            }
-                                        }
-                                    }
+                                                },
+                                            },
+                                        },
+                                    },
                                 }
-                            }
-                        }
+                            },
+                        },
                     }
-                }
+                },
             }
         ]
     }
@@ -56,7 +56,7 @@ def ingest():
         description: The metrics were ingested successfully
       400:
         description: The request could not be parsed
-      """
+    """
     data = request.json
     metrics_ingested = data.get("metrics", [])
 
@@ -73,17 +73,19 @@ def ingest():
         replacement = False
         for met in m.metrics:
             # Overwrite the value already there for the same metric (for continuous updates)
-            if met['name'] == ingest_name:
+            if met["name"] == ingest_name:
                 replacement = True
 
-                met['value'] = ingest_value
-                met['labels'] = ingest_labels
+                met["value"] = ingest_value
+                met["labels"] = ingest_labels
 
                 break
-        
+
         if not replacement:
-            m.metrics.append({"name": ingest_name, "value": ingest_value, "labels": ingest_labels})
-        
+            m.metrics.append(
+                {"name": ingest_name, "value": ingest_value, "labels": ingest_labels}
+            )
+
     response = jsonify(success=True)
     response.status_code = 201
     return response

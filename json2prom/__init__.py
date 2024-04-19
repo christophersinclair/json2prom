@@ -10,8 +10,8 @@ swagger_template = {
     "info": {
         "title": "JSON2Prom",
         "description": "Post values in JSON you want to expose as Prometheus metrics!",
-        "version": "1.0"
-    }
+        "version": "1.0",
+    },
 }
 swagger = Swagger(app, template=swagger_template)
 
