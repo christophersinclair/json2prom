@@ -23,7 +23,6 @@ curl -s -k -H "Accept: text/plain" http://<route>:41024/metrics
 #### Example
 `http://<route>:41024/json` shows metrics already ingested in JSON format
 ![image](https://github.com/christophersinclair/json2prom/assets/29457515/a302097a-117d-45f2-bafb-44a68dbc5cc0)
-[{"labels":[{"env":"prod"}],"name":"http_200_response_count","value":"25"},{"labels":[{"env":"dev"}],"name":"http_500_response_count","value":"2"}]
 
 `http://<route>:41024/metrics` shows metrics in Prom format
 
