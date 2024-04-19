@@ -9,6 +9,13 @@ NOTE: This API hold all its information in-memory (NO persistent data storage). 
 All API endpoints can be found at `<route>:41024/apidocs`
 ![image](https://github.com/christophersinclair/json2prom/assets/29457515/75d65536-6905-4f21-9e24-8eef9b8ffaa1)
 
+### Starting the Application
+```
+pip install -r requirements.txt
+python3 setup.py develop
+python3 -m json2prom
+```
+If you're running `json2prom` locally (on your workstation), you can substitute `localhost` for `<route>` in the following examples. Otherwise, use whatever service or FQDN is in front of this application at runtime instead.
 
 ### Publishing Data to Convert (JSON POST)
 ```
