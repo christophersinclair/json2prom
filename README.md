@@ -7,6 +7,8 @@ The logistics of setting this API up in a resilient way to ensure scrape target 
 
 
 All API endpoints can be found at `<route>:41024/apidocs`
+![image](https://github.com/christophersinclair/json2prom/assets/29457515/75d65536-6905-4f21-9e24-8eef9b8ffaa1)
+
 
 ### Publishing Data to Convert (JSON POST)
 ```
@@ -17,3 +19,11 @@ curl -s -k -H "Content-Type: application/json" -X POST --data '{"metrics": [{"me
 ```
 curl -s -k -H "Accept: text/plain" http://<route>:41024/metrics
 ```
+
+#### Example
+`http://<route>:41024/json` shows metrics already ingested in JSON format
+![image](https://github.com/christophersinclair/json2prom/assets/29457515/a302097a-117d-45f2-bafb-44a68dbc5cc0)
+[{"labels":[{"env":"prod"}],"name":"http_200_response_count","value":"25"},{"labels":[{"env":"dev"}],"name":"http_500_response_count","value":"2"}]
+
+`http://<route>:41024/metrics` shows metrics in Prom format
+![image](https://github.com/christophersinclair/json2prom/assets/29457515/e6b2ce79-a11f-4bd8-926a-294d9fbd01e9)
