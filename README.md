@@ -6,7 +6,7 @@ This is useful in situations where your monitoring environment uses Prometheus t
 The logistics of setting this API up in a resilient way to ensure scrape target availability is an exercise left to the reader. It can run on Kubernetes, VMs, AWS ECS, CloudFoundry, laptop, whatever.
 
 
-All API endpoints can be found at `localhost:41024/apidocs`
+All API endpoints can be found at `<route>:41024/apidocs`
 
 ### Publishing Data to Convert (JSON POST)
 ```
